@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 // We export a function that defines the model.
 // This function will automatically receive as parameter the Sequelize connection object.
 module.exports = (sequelize) => {
-    const user = sequelize.define('utilizador', {
+    const user = sequelize.define('user', {
         user_id: {
             type: DataTypes.INTEGER,
             autoincrement: true,
