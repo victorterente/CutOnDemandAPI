@@ -14,7 +14,17 @@ async function getAll (req, res) {
         return { status: 500, data: err };
     }
 }
-
+async function getById(req, res) {
+    const id = getIdParam(req);
+    const user = await models.users.findByPk(id, {
+        include: models.roles
+    });
+    if (user) {
+        res.status(200).json(user);
+    } else {
+        res.status(404).send('404 - Not found');
+    }
+}
 async function create(req, res) {
     if (req.body.id) {
         res.status(400).send(`Bad request: ID should not be provided, since it is determined automatically by the database.`)
@@ -32,6 +42,7 @@ async function create(req, res) {
 
 module.exports = {
     getAll,
+    getById,
     create
 
 };
