@@ -52,4 +52,3 @@ for (const [routeName, routeController] of Object.entries(routes)) {
 }
 
 module.exports = app;
-module.exports = app;
